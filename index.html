@@ -215,7 +215,7 @@ input, select{
   font-family:var(--body);
   font-size:16px;
   color:var(--ink);
-  background:#fff !important;
+  background-color:#fff !important;
   border:1px solid #e3e3e3;
   border-radius:8px;
   padding:15px 16px;
@@ -613,25 +613,28 @@ h2.pin{ max-width:24ch; }
 
       <!--
         ============================================================
-        KIT FORM  -  form 10010980 / uid 8c745fd735
+        KIT FORM  -  form 10011233 / uid 835f6a992a
         ============================================================
         This same block appears 4x (hero, band 1, band 2, closer).
-        Only the field IDs differ (ck-name-1 ... ck-name-4) so the
+        Only the field IDs differ (ck-name-1 ... ck-session-4) so the
         labels stay correctly paired. Everything else is identical.
 
-        Single session: Wednesday, Oct 14, 2:00 pm ET. There is no
-        session dropdown; any tagging happens on the Kit side.
+        Session dropdown: name="tags[]", each option value is a Kit
+        tag ID. Single session for now (Wed Oct 14, 2:00 pm ET, tag
+        24341263), pre-selected and required so every signup is
+        tagged. To add a date, add an <option> to all 4 dropdowns
+        using the tag ID from Kit's form embed code.
 
         Kit's own stylesheet is deliberately left out. The forms are
         styled by the .formkit-* rules in the CSS above so they match
         the page. Do not paste Kit's <style> block back in.
         ============================================================
       -->
-      <form action="https://app.kit.com/forms/10010980/subscriptions"
+      <form action="https://app.kit.com/forms/10011233/subscriptions"
             class="seva-form formkit-form"
             method="post"
-            data-sv-form="10010980"
-            data-uid="8c745fd735"
+            data-sv-form="10011233"
+            data-uid="835f6a992a"
             data-format="inline"
             data-version="5"
             data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;redirect&quot;,&quot;success_message&quot;:&quot;You're in. Your join link is on its way to your inbox. Add it to your calendar so you don't lose track of it.&quot;,&quot;redirect_url&quot;:&quot;https://offers.whitneybateson.com/funnel-webinar-thank-you/&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:false,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}">
@@ -648,6 +651,15 @@ h2.pin{ max-width:24ch; }
           <div class="formkit-field">
             <label for="ck-email-1">Best email</label>
             <input id="ck-email-1" class="formkit-input" type="email" name="email_address" autocomplete="email" placeholder="Email address" required>
+          </div>
+
+          <div class="formkit-field">
+            <label for="ck-session-1">Choose your session</label>
+            <div data-group="dropdown">
+              <select id="ck-session-1" class="formkit-select" data-element="tags-select" name="tags[]" required>
+                <option value="24341263" selected>Wed, Oct 14 &middot; 2:00 pm ET</option>
+              </select>
+            </div>
           </div>
 
           <button class="formkit-submit btn" data-element="submit" type="submit">
@@ -695,11 +707,11 @@ h2.pin{ max-width:24ch; }
 <section class="band band-tight">
   <div class="shell">
     <div class="card">
-      <form action="https://app.kit.com/forms/10010980/subscriptions"
+      <form action="https://app.kit.com/forms/10011233/subscriptions"
             class="seva-form formkit-form"
             method="post"
-            data-sv-form="10010980"
-            data-uid="8c745fd735"
+            data-sv-form="10011233"
+            data-uid="835f6a992a"
             data-format="inline"
             data-version="5"
             data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;redirect&quot;,&quot;success_message&quot;:&quot;You're in. Your join link is on its way to your inbox. Add it to your calendar so you don't lose track of it.&quot;,&quot;redirect_url&quot;:&quot;https://offers.whitneybateson.com/funnel-webinar-thank-you/&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:false,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}">
@@ -716,6 +728,15 @@ h2.pin{ max-width:24ch; }
           <div class="formkit-field">
             <label for="ck-email-2">Best email</label>
             <input id="ck-email-2" class="formkit-input" type="email" name="email_address" autocomplete="email" placeholder="Email address" required>
+          </div>
+
+          <div class="formkit-field">
+            <label for="ck-session-2">Choose your session</label>
+            <div data-group="dropdown">
+              <select id="ck-session-2" class="formkit-select" data-element="tags-select" name="tags[]" required>
+                <option value="24341263" selected>Wed, Oct 14 &middot; 2:00 pm ET</option>
+              </select>
+            </div>
           </div>
 
           <button class="formkit-submit btn" data-element="submit" type="submit">
@@ -775,11 +796,11 @@ h2.pin{ max-width:24ch; }
   </div>
 
   <div class="bonus-cta">
-  <form action="https://app.kit.com/forms/10010980/subscriptions"
+  <form action="https://app.kit.com/forms/10011233/subscriptions"
               class="seva-form formkit-form"
               method="post"
-              data-sv-form="10010980"
-              data-uid="8c745fd735"
+              data-sv-form="10011233"
+              data-uid="835f6a992a"
               data-format="inline"
               data-version="5"
               data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;redirect&quot;,&quot;success_message&quot;:&quot;You're in. Your join link is on its way to your inbox. Add it to your calendar so you don't lose track of it.&quot;,&quot;redirect_url&quot;:&quot;https://offers.whitneybateson.com/funnel-webinar-thank-you/&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:false,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}">
@@ -796,6 +817,15 @@ h2.pin{ max-width:24ch; }
             <div class="formkit-field">
               <label for="ck-email-3">Best email</label>
               <input id="ck-email-3" class="formkit-input" type="email" name="email_address" autocomplete="email" placeholder="Email address" required>
+            </div>
+
+            <div class="formkit-field">
+              <label for="ck-session-3">Choose your session</label>
+              <div data-group="dropdown">
+                <select id="ck-session-3" class="formkit-select" data-element="tags-select" name="tags[]" required>
+                  <option value="24341263" selected>Wed, Oct 14 &middot; 2:00 pm ET</option>
+                </select>
+              </div>
             </div>
 
             <button class="formkit-submit btn" data-element="submit" type="submit">
@@ -844,11 +874,11 @@ h2.pin{ max-width:24ch; }
     <p class="sub">Join me live and I'll show you the system that makes it possible (even if marketing is the last thing you have time for).</p>
 
     <div class="card">
-      <form action="https://app.kit.com/forms/10010980/subscriptions"
+      <form action="https://app.kit.com/forms/10011233/subscriptions"
             class="seva-form formkit-form"
             method="post"
-            data-sv-form="10010980"
-            data-uid="8c745fd735"
+            data-sv-form="10011233"
+            data-uid="835f6a992a"
             data-format="inline"
             data-version="5"
             data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;redirect&quot;,&quot;success_message&quot;:&quot;You're in. Your join link is on its way to your inbox. Add it to your calendar so you don't lose track of it.&quot;,&quot;redirect_url&quot;:&quot;https://offers.whitneybateson.com/funnel-webinar-thank-you/&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:false,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}">
@@ -865,6 +895,15 @@ h2.pin{ max-width:24ch; }
           <div class="formkit-field">
             <label for="ck-email-4">Best email</label>
             <input id="ck-email-4" class="formkit-input" type="email" name="email_address" autocomplete="email" placeholder="Email address" required>
+          </div>
+
+          <div class="formkit-field">
+            <label for="ck-session-4">Choose your session</label>
+            <div data-group="dropdown">
+              <select id="ck-session-4" class="formkit-select" data-element="tags-select" name="tags[]" required>
+                <option value="24341263" selected>Wed, Oct 14 &middot; 2:00 pm ET</option>
+              </select>
+            </div>
           </div>
 
           <button class="formkit-submit btn" data-element="submit" type="submit">
