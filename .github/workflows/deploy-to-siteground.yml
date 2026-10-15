@@ -11,7 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy via FTP
+      # Oct 14 page -> /list-building-webinar-14/
+      - name: Deploy list-building-webinar-14
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -24,3 +25,15 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
+            26/**
+
+      # Oct 26 page (the 26/ folder) -> /list-building-webinar-26/
+      - name: Deploy list-building-webinar-26
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          port: ${{ secrets.FTP_PORT }}
+          local-dir: ./26/
+          server-dir: /public_html/list-building-webinar-26/
