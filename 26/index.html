@@ -641,14 +641,12 @@ src="https://www.facebook.com/tr?id=420001742577516&ev=PageView&noscript=1"
         KIT FORM  -  form 10047673 / uid 7e33cebe37
         ============================================================
         This same block appears 4x (hero, band 1, band 2, closer).
-        Only the field IDs differ (ck-name-1 ... ck-session-4) so the
+        Only the field IDs differ (ck-name-1 ... ck-email-4) so the
         labels stay correctly paired. Everything else is identical.
 
-        Session dropdown: name="tags[]", each option value is a Kit
-        tag ID. Single session for now (Mon Oct 26, 1:00 pm ET, tag
-        24640379), pre-selected and required so every signup is
-        tagged. To add a date, add an <option> to all 4 dropdowns
-        using the tag ID from Kit's form embed code.
+        Session tag: a hidden name="tags[]" input applies Kit tag
+        24640379 (Mon Oct 26, 1:00 pm ET) to every signup, so there's
+        no visible dropdown for a single date.
 
         Kit's own stylesheet is deliberately left out. The forms are
         styled by the .formkit-* rules in the CSS above so they match
@@ -678,14 +676,7 @@ src="https://www.facebook.com/tr?id=420001742577516&ev=PageView&noscript=1"
             <input id="ck-email-1" class="formkit-input" type="email" name="email_address" autocomplete="email" placeholder="Email address" required>
           </div>
 
-          <div class="formkit-field">
-            <label for="ck-session-1">Choose your session</label>
-            <div data-group="dropdown">
-              <select id="ck-session-1" class="formkit-select" data-element="tags-select" name="tags[]" required>
-                <option value="24640379" selected>Mon, Oct 26 &middot; 1:00 pm ET</option>
-              </select>
-            </div>
-          </div>
+          <input type="hidden" name="tags[]" value="24640379">
 
           <button class="formkit-submit btn" data-element="submit" type="submit">
             <div class="formkit-spinner"><div></div><div></div><div></div></div>
@@ -760,14 +751,7 @@ src="https://www.facebook.com/tr?id=420001742577516&ev=PageView&noscript=1"
             <input id="ck-email-2" class="formkit-input" type="email" name="email_address" autocomplete="email" placeholder="Email address" required>
           </div>
 
-          <div class="formkit-field">
-            <label for="ck-session-2">Choose your session</label>
-            <div data-group="dropdown">
-              <select id="ck-session-2" class="formkit-select" data-element="tags-select" name="tags[]" required>
-                <option value="24640379" selected>Mon, Oct 26 &middot; 1:00 pm ET</option>
-              </select>
-            </div>
-          </div>
+          <input type="hidden" name="tags[]" value="24640379">
 
           <button class="formkit-submit btn" data-element="submit" type="submit">
             <div class="formkit-spinner"><div></div><div></div><div></div></div>
@@ -848,14 +832,7 @@ src="https://www.facebook.com/tr?id=420001742577516&ev=PageView&noscript=1"
               <input id="ck-email-3" class="formkit-input" type="email" name="email_address" autocomplete="email" placeholder="Email address" required>
             </div>
 
-            <div class="formkit-field">
-              <label for="ck-session-3">Choose your session</label>
-              <div data-group="dropdown">
-                <select id="ck-session-3" class="formkit-select" data-element="tags-select" name="tags[]" required>
-                  <option value="24640379" selected>Mon, Oct 26 &middot; 1:00 pm ET</option>
-                </select>
-              </div>
-            </div>
+            <input type="hidden" name="tags[]" value="24640379">
 
             <button class="formkit-submit btn" data-element="submit" type="submit">
               <div class="formkit-spinner"><div></div><div></div><div></div></div>
@@ -926,14 +903,7 @@ src="https://www.facebook.com/tr?id=420001742577516&ev=PageView&noscript=1"
             <input id="ck-email-4" class="formkit-input" type="email" name="email_address" autocomplete="email" placeholder="Email address" required>
           </div>
 
-          <div class="formkit-field">
-            <label for="ck-session-4">Choose your session</label>
-            <div data-group="dropdown">
-              <select id="ck-session-4" class="formkit-select" data-element="tags-select" name="tags[]" required>
-                <option value="24640379" selected>Mon, Oct 26 &middot; 1:00 pm ET</option>
-              </select>
-            </div>
-          </div>
+          <input type="hidden" name="tags[]" value="24640379">
 
           <button class="formkit-submit btn" data-element="submit" type="submit">
             <div class="formkit-spinner"><div></div><div></div><div></div></div>
