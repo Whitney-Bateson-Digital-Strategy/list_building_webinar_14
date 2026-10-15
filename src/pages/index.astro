@@ -30,9 +30,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <!-- Kit form handler. Loaded once, powers all four forms on the page. -->
-<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+<script is:inline src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 
-<style>
+<style is:inline>
 :root{
   /* Whitney Bateson brand palette */
   --cream:      #f5f2ec;
@@ -581,7 +581,7 @@ h2.pin{ max-width:24ch; }
 .teal-h2{ color:var(--teal); }
 </style>
 <!-- Meta Pixel Code -->
-<script>
+<script is:inline>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -941,7 +941,7 @@ src="https://www.facebook.com/tr?id=420001742577516&ev=PageView&noscript=1"
   </div>
 </footer>
 
-<script>
+<script is:inline>
 /* ---- Session countdown ----------------------------------------------
    Counts down to the session, shows "live right now" while it runs,
    then hides the bar. -04:00 is Eastern Daylight Time; if a session

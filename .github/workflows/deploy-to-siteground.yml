@@ -11,6 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Astro builds src/pages + public into dist/
+      - run: npm ci
+      - run: npm run build
+
       # Oct 14 page -> /list-building-webinar-14/
       - name: Deploy list-building-webinar-14
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
@@ -19,15 +28,12 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           port: ${{ secrets.FTP_PORT }}
-          local-dir: ./
+          local-dir: ./dist/
           server-dir: /public_html/list-building-webinar-14/
           exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
             26/**
 
-      # Oct 26 page (the 26/ folder) -> /list-building-webinar-26/
+      # Oct 26 page (dist/26/) -> /list-building-webinar-26/
       - name: Deploy list-building-webinar-26
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
@@ -35,5 +41,5 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           port: ${{ secrets.FTP_PORT }}
-          local-dir: ./26/
+          local-dir: ./dist/26/
           server-dir: /public_html/list-building-webinar-26/
