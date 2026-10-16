@@ -32,6 +32,7 @@ jobs:
           server-dir: /public_html/list-building-webinar-14/
           exclude: |
             26/**
+            organic/**
 
       # Oct 26 page (dist/26/) -> /list-building-webinar-26/
       - name: Deploy list-building-webinar-26
@@ -43,3 +44,14 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           local-dir: ./dist/26/
           server-dir: /public_html/list-building-webinar-26/
+
+      # Organic page, all three dates (dist/organic/) -> /list-building-webinar-oct-nov/
+      - name: Deploy list-building-webinar (organic)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          port: ${{ secrets.FTP_PORT }}
+          local-dir: ./dist/organic/
+          server-dir: /public_html/list-building-webinar-oct-nov/
