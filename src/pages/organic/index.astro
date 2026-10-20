@@ -13,7 +13,7 @@ const FORM_UID = 'f2352af05c';
 
 <!-- Open Graph -->
 <meta property="og:title" content="Your Marketing Shouldn't Stop Working When You Stop Showing Up">
-<meta property="og:description" content="Live training for dietitians, therapists and health practitioners. Pick a date: Mon Oct 26 (1pm ET), Tue Nov 3 (3pm ET) or Mon Nov 16 (1pm ET).">
+<meta property="og:description" content="Live training for dietitians, therapists and health practitioners. Mon Oct 26, 1pm ET.">
 <meta property="og:type" content="website">
 <!-- <meta property="og:image" content="REPLACE_WITH_SHARE_IMAGE_URL"> -->
 
@@ -654,8 +654,8 @@ src="https://www.facebook.com/tr?id=420001742577516&ev=PageView&noscript=1"
           24707611  Mon Oct 26, 1:00 pm ET
           24707612  Tue Nov 3,  3:00 pm ET
           24707613  Mon Nov 16, 1:00 pm ET
-        Dates that have already started are removed by the script at
-        the bottom of the page. To add a date, add an <option> to all
+        Dates that have already started, or are marked hidden:true in
+        SESSIONS, are removed by the script at the bottom of the page. To add a date, add an <option> to all
         4 dropdowns and an entry to SESSIONS in that script.
 
         Kit's own stylesheet is deliberately left out. The forms are
@@ -978,11 +978,13 @@ src="https://www.facebook.com/tr?id=420001742577516&ev=PageView&noscript=1"
    Counts down to the next session, shows "live right now" while it
    runs, then moves on to the next one and hides the bar after the
    last. -04:00 is Eastern Daylight Time; clocks fall back on Nov 1,
-   so the November sessions use -05:00. `tag` matches the dropdown. */
+   so the November sessions use -05:00. `tag` matches the dropdown.
+   hidden:true takes a date off the dropdowns and the countdown;
+   delete it to bring the date back. */
 var SESSIONS = [
   { tag:'24707611', label:"Next training starts in", live:"The training is live right now", start:'2026-10-26T13:00:00-04:00' },
-  { tag:'24707612', label:"Next training starts in", live:"The training is live right now", start:'2026-11-03T15:00:00-05:00' },
-  { tag:'24707613', label:"Next training starts in", live:"The training is live right now", start:'2026-11-16T13:00:00-05:00' }
+  { tag:'24707612', label:"Next training starts in", live:"The training is live right now", start:'2026-11-03T15:00:00-05:00', hidden:true },
+  { tag:'24707613', label:"Next training starts in", live:"The training is live right now", start:'2026-11-16T13:00:00-05:00', hidden:true }
 ];
 var RUNS_FOR_MS = 75 * 60 * 1000;   // treat a session as live for 75 minutes
 
@@ -1000,7 +1002,7 @@ function pad(n){ return n < 10 ? '0' + n : '' + n; }
 
 function currentSession(now){
   for (var i = 0; i < SESSIONS.length; i++){
-    if (now < SESSIONS[i].startMs + RUNS_FOR_MS) return SESSIONS[i];
+    if (!SESSIONS[i].hidden && now < SESSIONS[i].startMs + RUNS_FOR_MS) return SESSIONS[i];
   }
   return null;
 }
@@ -1032,12 +1034,12 @@ function tick(){
 tick();
 setInterval(tick, 1000);
 
-/* Drop dates that have already started from every dropdown, so nobody
-   registers for a session that's over. */
+/* Drop dates that have already started, or are hidden, from every
+   dropdown, so nobody registers for a session that's over or not open. */
 (function(){
   var now = Date.now();
   SESSIONS.forEach(function(s){
-    if (now < s.startMs) return;
+    if (!s.hidden && now < s.startMs) return;
     document.querySelectorAll('select[name="tags[]"] option[value="' + s.tag + '"]')
       .forEach(function(o){ o.remove(); });
   });
