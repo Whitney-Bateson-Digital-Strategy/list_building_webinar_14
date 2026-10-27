@@ -1,0 +1,10 @@
+# Old organic slug /list-building-webinar-oct-nov/ now lives at the
+# evergreen /list-building-webinar/. Send anyone on an old link there,
+# keeping any ?utm_ query string.
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-store, no-cache, must-revalidate"
+  Header set X-Cache-Enabled "false"
+</IfModule>
+
+RewriteEngine On
+RewriteRule ^(.*)$ /list-building-webinar/$1 [R=301,L]
