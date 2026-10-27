@@ -34,6 +34,7 @@ jobs:
             3/**
             26/**
             organic/**
+            oct-nov-redirect/**
 
       # Oct 26 page (dist/26/) -> /list-building-webinar-26/
       - name: Deploy list-building-webinar-26
@@ -57,7 +58,8 @@ jobs:
           local-dir: ./dist/3/
           server-dir: /public_html/list-building-webinar-3/
 
-      # Organic page, all three dates (dist/organic/) -> /list-building-webinar-oct-nov/
+      # Organic page (dist/organic/) -> /list-building-webinar/
+      # Evergreen slug, so it can stay the same as dates change.
       - name: Deploy list-building-webinar (organic)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
@@ -66,4 +68,15 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           port: ${{ secrets.FTP_PORT }}
           local-dir: ./dist/organic/
+          server-dir: /public_html/list-building-webinar/
+
+      # Old organic slug -> 301 redirect to /list-building-webinar/
+      - name: Redirect list-building-webinar-oct-nov
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          port: ${{ secrets.FTP_PORT }}
+          local-dir: ./dist/oct-nov-redirect/
           server-dir: /public_html/list-building-webinar-oct-nov/
